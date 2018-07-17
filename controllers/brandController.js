@@ -33,7 +33,12 @@ router.post('/', (req, res) => {
 });
 
 // Delete
-
+router.delete('/:id', (req, res) => {
+  Brand.findByIdAndRemove(req.params.id, (err, deletedBrand) => {
+    console.log(deletedBrand, ' this is the deletedBrand');
+      res.redirect('/brands');
+  });
+});
 
 // Edit
 
