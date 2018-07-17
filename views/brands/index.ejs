@@ -7,7 +7,7 @@
   <h1>Brands Index Page</h1>
 
   <ul>
-    for(let i = 0; i < brands.length; i++){
+    <% for(let i = 0; i < brands.length; i++){ %>
     <a href="/brands/<%=brands[i].id%>">
       <li><%= brands[i].name%></li>
     </a>
