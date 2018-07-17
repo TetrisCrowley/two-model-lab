@@ -41,8 +41,17 @@ router.delete('/:id', (req, res) => {
 });
 
 // Edit
-
-
-
+router.get('/:id/edit', (req, res) => {
+  Brand.findById(req.params.id, req.body, {new: true}, (err, foundBrand) => {
+    res.render('brands/edit.ejs', {
+      brand: foundBrand
+    });
+  });
+});
+router.put('/:id', (req, res) => {
+  Brand.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedBrand) => {
+    res.redirect('/brands');
+  });
+});
 
 module.exports = router;
