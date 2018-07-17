@@ -17,7 +17,13 @@ router.get('/new', (req, res) => {
 });
 
 // Show
-
+router.get('/:id', (req, res) => {
+  Brand.findById(req.params.id, (err, foundBrand) => {
+    res.render('brands/show.ejs', {
+      brand: foundBrand
+    });
+  });
+});
 
 // Create
 router.post('/', (req, res) => {
